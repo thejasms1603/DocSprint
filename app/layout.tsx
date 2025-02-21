@@ -1,30 +1,27 @@
-import type { Metadata } from "next";
+import { Inter as FontSans } from "next/font/google";
+
+import { cn } from "@/lib/utils";
+import "./globals.css";
+import { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 import Provider from "./Provider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const fontSans = FontSans({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: "--font-sans",
 });
 
 export const metadata: Metadata = {
-  title: "Doc Sprint",
-  description: "A live collaborative document editor",
+  title: "LiveDocs",
+  description: "Your go-to collaborative editor",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <ClerkProvider
       appearance={{
@@ -35,13 +32,14 @@ export default function RootLayout({
         },
       }}
     >
-      <html lang='en'>
+      <html lang='en' suppressHydrationWarning>
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          className={cn(
+            "min-h-screen font-sans antialiased",
+            fontSans.variable
+          )}
         >
-          <Provider>
-          {children}
-          </Provider>
+          <Provider>{children}</Provider>
         </body>
       </html>
     </ClerkProvider>

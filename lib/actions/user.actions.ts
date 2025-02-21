@@ -1,24 +1,27 @@
-"use server"
+"use server";
 import { clerkClient } from "@clerk/nextjs/server";
 import { parseStringify } from "../utils";
 
-export const getClerkUsers = async ({userIds} : {userIds: string[]}) => {
-    try{
-        const {data} = await clerkClient.users.getUserList({
-            emailAddress: userIds
-        });
+export const getClerkUsers = async ({ userIds }: { userIds: string[] }) => {
+  try {
+    const users = await (await clerkClient()).users.getUserList({
+      emailAddress: userIds, // Correct key (plural form)
+    });
 
-        const users = data.map((user) => ({
-            id:user.id,
-            name:`${user.firstName} ${user.lastName}`,
-            email:user.emailAddresses[0].emailAddress,
-            avatar:user.imageUrl
-        }))
+    const formattedUsers = users.data?.map((user) => ({
+      id: user.id,
+      name: `${user.firstName ?? ""} ${user.lastName ?? ""}`.trim(),
+      email: user.emailAddresses[0]?.emailAddress ?? "N/A",
+      avatar: user.imageUrl,
+    }));
 
-        const sortedUsers = userIds.map((email) => users.find((user) => user.email === email));
+    const sortedUsers = userIds.map((email) =>
+      formattedUsers.find((user) => user.email === email)
+    );
 
-        return parseStringify(sortedUsers)
-    } catch(error){
-        console.error(`Error fetching users: ${error}`);
-    }
-} 
+    return parseStringify(sortedUsers);
+  } catch (error) {
+    console.error(`Error fetching users: ${error}`);
+    throw new Error("Failed to fetch Clerk users.");
+  }
+};

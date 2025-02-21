@@ -57,7 +57,7 @@ const CollaborativeRoom = ({roomId, roomMetadata, users, currentUserType} : Coll
   useEffect(()=>{
     if(editing && inputRef.current)
     {
-      inputRef.current.focus()
+      inputRef.current.focus();
     }
   },[editing])
   return (
