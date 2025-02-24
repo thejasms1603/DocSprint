@@ -4,6 +4,7 @@ import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function POST(request: Request) {
     const clerkUser = await currentUser();
     if(!clerkUser) redirect('/sign-in');
