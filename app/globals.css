@@ -64,7 +64,6 @@
   .shad-select svg {
     @apply ml-1 mt-1;
   }
-
   .shad-select-item {
     @apply cursor-pointer bg-dark-200 text-blue-100 focus:bg-dark-300 hover:bg-dark-300 focus:text-blue-100 !important;
   }

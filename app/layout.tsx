@@ -13,8 +13,8 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "LiveDocs",
-  description: "Your go-to collaborative editor",
+  title: "Doc Sprint",
+  description: "Your live collaborative editor",
 };
 
 export default function RootLayout({
