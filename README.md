@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Collaborative Document App
 
-## Getting Started
+Welcome to the **Collaborative Document App**, a real-time document collaboration platform built with **Next.js**, **Clerk for authentication**, and **Liveblocks** for collaborative editing. This app allows users to share documents, collaborate seamlessly, and manage access permissions.
 
-First, run the development server:
+## 📸 Demo
+Check out the live demo [here](https://tms-doc-sprint.vercel.app/).
 
+## 📦 Tech Stack
+- **Frontend:** Next.js, TypeScript, Tailwind CSS
+- **Authentication:** Clerk
+- **Real-Time Collaboration:** Liveblocks
+- **Deployment:** Vercel
+- **Monitoring:** Sentry
+
+## ✨ Features
+- 🔑 **Authentication:** Secure login and sign-up with Clerk.
+- 📝 **Real-Time Collaboration:** Edit documents together with synchronized changes.
+- 🧑‍💻 **User Roles:** Assign "editor" or "viewer" access to collaborators.
+- 📚 **Document Management:** Create, update, and share documents.
+- 🌐 **Responsive UI:** Mobile-friendly design with Tailwind CSS.
+- 📜 Error Monitoring: Integrated with Sentry for performance monitoring and error tracking.
+
+## 🛠️ Installation
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/thejasms1603/DocSprint.git
+cd DocSprint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Set up environment variables:
+Create a `.env` file and add the following:
+```
+NEXT_PUBLIC_CLERK_FRONTEND_API=<your-clerk-api>
+CLERK_SECRET_KEY=<your-clerk-secret-key>
+LIVEBLOCKS_SECRET_KEY=<your-liveblocks-key>
+SENTRY_AUTH_TOKEN=<your-firebase-api-key>
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Run the app locally:
+```bash
+npm run dev
+```
+Visit `http://localhost:3000` to see the app in action.
 
-## Learn More
+## 🚀 Deployment
+To deploy the app on Vercel:
+1. Push your code to GitHub.
+2. Connect your GitHub repo to Vercel.
+3. Add environment variables in the Vercel dashboard.
+4. Deploy!
 
-To learn more about Next.js, take a look at the following resources:
+## 🤝 Contributing
+Contributions are welcome! Feel free to submit a pull request or open an issue.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📄 License
+This project is licensed under the MIT License.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📧 Contact
+For any questions, reach out to [Thejas Mandya Shashidhara](mailto:thejasabhi705@gmail.com).
 
-## Deploy on Vercel
+---
+⭐️ Don't forget to star the repo if you found this useful!
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
